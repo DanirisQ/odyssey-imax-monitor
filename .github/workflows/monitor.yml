@@ -1,0 +1,66 @@
+name: Monitor MOViE MOViE Odyssey IMAX
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: odyssey-imax-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check Maoyan and notify
+        env:
+          CINEMA_ID: "37534"
+          CITY_ID: "10"
+          CINEMA_NAME: "MOViE MOViE影城（前滩太古里店）"
+          TARGET_MOVIE: "奥德赛"
+          TARGET_MOVIE_ALIASES: "奥德赛,The Odyssey"
+          TARGET_FORMAT_KEYWORD: "IMAX"
+          TIMEZONE: "Asia/Shanghai"
+          MAOYAN_COOKIE: ${{ secrets.MAOYAN_COOKIE }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          SMTP_USE_SSL: ${{ secrets.SMTP_USE_SSL }}
+          SMTP_STARTTLS: ${{ secrets.SMTP_STARTTLS }}
+          NOTIFY_ON_FIRST_RUN: "false"
+          STATE_PATH: "data/state.json"
+          HISTORY_PATH: "data/history.csv"
+        run: python -m odyssey_monitor
+
+      - name: Persist first-seen history
+        if: always()
+        run: |
+          if [ -z "$(git status --porcelain -- data/state.json data/history.csv)" ]; then
+            echo "No state/history changes."
+            exit 0
+          fi
+          git config user.name "odyssey-imax-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/state.json data/history.csv
+          git commit -m "chore: update Odyssey IMAX monitor state"
+          git push
