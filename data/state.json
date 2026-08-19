@@ -1,7 +1,7 @@
 {
   "initialized": true,
-  "last_successful_check_at": "2026-08-19T12:26:30+08:00",
-  "last_visible_count": 24,
+  "last_successful_check_at": "2026-08-19T13:35:26+08:00",
+  "last_visible_count": 28,
   "seen": {
     "2026-08-18|09:45|imax 激光厅|imax2d": {
       "first_seen_at": "2026-08-18T00:29:00+08:00",
@@ -361,6 +361,66 @@
       "source": "maoyan-mobile-json",
       "source_id": "202608230032125",
       "start_time": "22:45",
+      "version": "IMAX2D"
+    },
+    "2026-08-24|09:45|imax 激光厅|imax2d": {
+      "first_seen_at": "2026-08-19T13:35:26+08:00",
+      "hall": "IMAX 激光厅",
+      "language": "英语",
+      "movie": "奥德赛",
+      "notified_at": "2026-08-19T13:35:31+08:00",
+      "show_date": "2026-08-24",
+      "source": "maoyan-mobile-json",
+      "source_id": "202608240005145",
+      "start_time": "09:45",
+      "version": "IMAX2D"
+    },
+    "2026-08-24|13:00|imax 激光厅|imax2d": {
+      "first_seen_at": "2026-08-19T13:35:26+08:00",
+      "hall": "IMAX 激光厅",
+      "language": "英语",
+      "movie": "奥德赛",
+      "notified_at": "2026-08-19T13:35:31+08:00",
+      "show_date": "2026-08-24",
+      "source": "maoyan-mobile-json",
+      "source_id": "202608240005148",
+      "start_time": "13:00",
+      "version": "IMAX2D"
+    },
+    "2026-08-24|16:20|imax 激光厅|imax2d": {
+      "first_seen_at": "2026-08-19T13:35:26+08:00",
+      "hall": "IMAX 激光厅",
+      "language": "英语",
+      "movie": "奥德赛",
+      "notified_at": "2026-08-19T13:35:31+08:00",
+      "show_date": "2026-08-24",
+      "source": "maoyan-mobile-json",
+      "source_id": "202608240005149",
+      "start_time": "16:20",
+      "version": "IMAX2D"
+    },
+    "2026-08-24|19:40|imax 激光厅|imax2d": {
+      "first_seen_at": "2026-08-19T13:35:26+08:00",
+      "hall": "IMAX 激光厅",
+      "language": "英语",
+      "movie": "奥德赛",
+      "notified_at": "2026-08-19T13:35:31+08:00",
+      "show_date": "2026-08-24",
+      "source": "maoyan-mobile-json",
+      "source_id": "202608240005146",
+      "start_time": "19:40",
+      "version": "IMAX2D"
+    },
+    "2026-08-24|22:55|imax 激光厅|imax2d": {
+      "first_seen_at": "2026-08-19T13:35:26+08:00",
+      "hall": "IMAX 激光厅",
+      "language": "英语",
+      "movie": "奥德赛",
+      "notified_at": "2026-08-19T13:35:31+08:00",
+      "show_date": "2026-08-24",
+      "source": "maoyan-mobile-json",
+      "source_id": "202608240005147",
+      "start_time": "22:55",
       "version": "IMAX2D"
     }
   },
